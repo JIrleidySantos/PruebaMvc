@@ -10,4 +10,16 @@ package ec.edu.espoch.practicamvc.modelo;
  */
 public class GestordeTareas {
     
+    public String agregarTareas(Tarea tarea){
+        return "";
+    }
+        public String listarTareasPendientes(){
+        return "";
+    }
+        public String listarTareasCompletas(){
+        return "";
+    }
+        public String marcarComoCompletas(int id){
+        return "";
+    }
 }
