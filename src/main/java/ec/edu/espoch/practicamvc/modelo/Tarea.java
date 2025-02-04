@@ -8,6 +8,7 @@ package ec.edu.espoch.practicamvc.modelo;
  *
  * @author mundo
  */
-public class Modelo {
+public class Tarea {
     
+   
 }
