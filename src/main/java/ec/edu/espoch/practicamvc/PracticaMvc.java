@@ -12,7 +12,7 @@ public class PracticaMvc {
 
     public static void main(String[] args) {
     
-        
+  
         
     }
 }
