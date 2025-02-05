@@ -23,9 +23,18 @@ public class Controlador {
     }
 
     public void procesoGerstorTareas() {
+        String titulo, descripcion;
+        try {
 
+            titulo = vista.getTxtTitulo();
+            descripcion = vista.getTxtDescripcion();
+
+            if (titulo.isEmpty() || descripcion.isEmpty()) {
+                throw new Exception("Por favor complete todos los campos.");
+            }
+
+        } catch (Exception e) {
+        vista.Error("Error: " + e.getMessage());
     }
-
-    
-    
+    }
 }
