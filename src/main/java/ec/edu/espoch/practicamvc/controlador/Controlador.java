@@ -4,6 +4,7 @@
  */
 package ec.edu.espoch.practicamvc.controlador;
 
+import ec.edu.espoch.practicamvc.modelo.GestordeTareas;
 import ec.edu.espoch.practicamvc.modelo.Tarea;
 import ec.edu.espoch.practicamvc.vista.Vista;
 
@@ -14,11 +15,11 @@ import ec.edu.espoch.practicamvc.vista.Vista;
 public class Controlador {
 
     private Vista vista;
-    private Tarea modelo;
+    private GestordeTareas modelo;
 
     public Controlador(Vista vista) {
         this.vista = vista;
-        this.modelo = new Tarea();
+        this.modelo = new GestordeTareas();
     }
 
     public void procesoGerstorTareas() {
