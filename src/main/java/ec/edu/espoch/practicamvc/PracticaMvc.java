@@ -11,7 +11,7 @@ package ec.edu.espoch.practicamvc;
 public class PracticaMvc {
 
     public static void main(String[] args) {
-    
+        System.out.println("   ");
         
         
     }
