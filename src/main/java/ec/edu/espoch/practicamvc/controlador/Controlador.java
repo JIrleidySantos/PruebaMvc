@@ -12,6 +12,7 @@ import ec.edu.espoch.practicamvc.vista.Vista;
  * @author mundo
  */
 public class Controlador {
+
     private Vista vista;
     private Tarea modelo;
 
@@ -19,6 +20,9 @@ public class Controlador {
         this.vista = vista;
         this.modelo = new Tarea();
     }
-    
-    
+
+    public void procesoGerstorTareas() {
+
+    }
+
 }
