@@ -13,14 +13,8 @@ import ec.edu.espoch.practicamvc.vista.Vista;
 public class PracticaMvc {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-    
-  
-=======
        Vista objVista = new Vista ();
        objVista.setVisible(true);
-        
->>>>>>> Anthony
-        
+
     }
 }
