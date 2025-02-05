@@ -8,12 +8,12 @@ package ec.edu.espoch.practicamvc.vista;
  *
  * @author USUARIO
  */
-public class Mostrar extends javax.swing.JFrame {
+public class Completas extends javax.swing.JFrame {
 
     /**
      * Creates new form Mostrar
      */
-    public Mostrar()  {
+    public Completas()  {
         initComponents();
         
     }

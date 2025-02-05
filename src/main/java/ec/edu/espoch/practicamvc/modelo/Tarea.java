@@ -53,6 +53,11 @@ public class Tarea {
     public void setTareaCompletada(boolean tareaCompletada) {
         this.tareaCompletada = tareaCompletada;
     }
+
+    @Override
+    public String toString() {
+        return "Tarea{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", tareaCompletada=" + tareaCompletada + '}';
+    }
    
     
     
