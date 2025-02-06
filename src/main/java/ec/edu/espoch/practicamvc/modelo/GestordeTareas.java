@@ -22,7 +22,6 @@ public class GestordeTareas {
         cantidadTareas = 0;
     }
 
-
     public void agregarTareas(Tarea tarea) {
         if (cantidadTareas < tareas.length) {
             tarea.setId(contadorId++);
