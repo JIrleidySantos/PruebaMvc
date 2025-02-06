@@ -5,20 +5,24 @@
 package ec.edu.espoch.practicamvc.vista;
 
 import ec.edu.espoch.practicamvc.controlador.Controlador;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+
 
 /**
  *
  * @author mundo
  */
 public class Vista extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Vista
      */
     private Controlador controlador;
-
+    
     public Vista() {
         initComponents();
+        this.setLocationRelativeTo(null);
         controlador = new Controlador(this);
     }
 
@@ -234,7 +238,8 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        controlador.procesoGerstorTareas();
+        controlador.procesoGestorTareas();
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtErrorActionPerformed
@@ -258,20 +263,32 @@ public class Vista extends javax.swing.JFrame {
         Pendientes objPendientes = new Pendientes();
         objPendientes.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_menuPendientesActionPerformed
-
+    
     public String getTxtDescripcion() {
         return txtDescripcion.getText();
     }
-
+    
     public String getTxtTitulo() {
         return txtTitulo.getText();
     }
-
+    
+    
     public void Error(String error) {
         txtError.setText(error);
     }
-    ;
     
+    
+    ;
+ 
+    public String getEstadoSeleccionado() {
+        if (cbxCompleto.isSelected()) {
+            return "Completa";
+        } else if (cbxIncompleto.isSelected()) {
+            return "Incompleta";
+        } else {
+            return "";
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;

@@ -78,7 +78,6 @@ public class Pendientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed
-
 // TODO add your handling code here:
     }//GEN-LAST:event_menuInicioActionPerformed
 

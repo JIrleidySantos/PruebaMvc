@@ -14,6 +14,7 @@ public class GestordeTareas {
         return "";
     }
         public String listarTareasPendientes(){
+            
         return "";
     }
         public String listarTareasCompletas(){
@@ -22,5 +23,6 @@ public class GestordeTareas {
         public String marcarComoCompletas(int id){
         return "";
     }
+        
         
 }

@@ -8,10 +8,7 @@ import ec.edu.espoch.practicamvc.modelo.GestordeTareas;
 import ec.edu.espoch.practicamvc.modelo.Tarea;
 import ec.edu.espoch.practicamvc.vista.Vista;
 
-/**
- *
- * @author mundo
- */
+
 public class Controlador {
 
     private Vista vista;
@@ -22,19 +19,25 @@ public class Controlador {
         this.modelo = new GestordeTareas();
     }
 
-    public void procesoGerstorTareas() {
-        String titulo, descripcion;
-        try {
+    public void procesoGestorTareas() {
+        String titulo, descripcion, estado;
 
+        try {
             titulo = vista.getTxtTitulo();
             descripcion = vista.getTxtDescripcion();
+            estado = vista.getEstadoSeleccionado(); 
 
-            if (titulo.isEmpty() || descripcion.isEmpty()) {
-                throw new Exception("Por favor complete todos los campos.");
+            if (titulo.isEmpty() || descripcion.isEmpty() || estado.isEmpty()) {
+                throw new Exception("Por favor complete todos los campos y seleccione un estado.");
             }
 
+            modelo.agregarTareas(new Tarea(0, titulo, descripcion, true));
+
+            vista.Error("Tarea registrada con éxito.");
+
         } catch (Exception e) {
-        vista.Error("Error: " + e.getMessage());
-    }
+            vista.Error("Error: " + e.getMessage());
+        }
     }
 }
+
