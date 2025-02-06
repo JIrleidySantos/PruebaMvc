@@ -30,7 +30,8 @@ public class Pendientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtIncompletas = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuInicio = new javax.swing.JMenu();
+        menu = new javax.swing.JMenu();
+        Inicio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,13 +41,22 @@ public class Pendientes extends javax.swing.JFrame {
         txtIncompletas.setRows(5);
         jScrollPane1.setViewportView(txtIncompletas);
 
-        menuInicio.setText("Inicio");
-        menuInicio.addActionListener(new java.awt.event.ActionListener() {
+        menu.setText("menu");
+        menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuInicioActionPerformed(evt);
+                menuActionPerformed(evt);
             }
         });
-        jMenuBar1.add(menuInicio);
+
+        Inicio.setText("Inicio");
+        Inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InicioActionPerformed(evt);
+            }
+        });
+        menu.add(Inicio);
+
+        jMenuBar1.add(menu);
 
         setJMenuBar(jMenuBar1);
 
@@ -77,19 +87,26 @@ public class Pendientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed
-// TODO add your handling code here:
-    }//GEN-LAST:event_menuInicioActionPerformed
+    private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuActionPerformed
+
+    private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
+        Vista vis = new Vista();
+        vis.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_InicioActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Inicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenu menuInicio;
+    private javax.swing.JMenu menu;
     private javax.swing.JTextArea txtIncompletas;
     // End of variables declaration//GEN-END:variables
 }

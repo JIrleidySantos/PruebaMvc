@@ -4,25 +4,29 @@
  */
 package ec.edu.espoch.practicamvc.modelo;
 
+import java.util.Vector;
+
 /**
  *
  * @author mundo
  */
 public class GestordeTareas {
-    
-    public String agregarTareas(Tarea tarea){
+
+    public String agregarTareas(Tarea tarea) {
         return "";
     }
-        public String listarTareasPendientes(){
-            
+
+    public String listarTareasPendientes() {
+
         return "";
     }
-        public String listarTareasCompletas(){
+
+    public String listarTareasCompletas() {
         return "";
     }
-        public String marcarComoCompletas(int id){
+
+    public String marcarComoCompletas(int id) {
         return "";
     }
-        
-        
+  
 }

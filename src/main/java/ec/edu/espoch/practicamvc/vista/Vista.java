@@ -5,21 +5,18 @@
 package ec.edu.espoch.practicamvc.vista;
 
 import ec.edu.espoch.practicamvc.controlador.Controlador;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
-
 
 /**
  *
  * @author mundo
  */
 public class Vista extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form Vista
      */
     private Controlador controlador;
-    
+
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -113,7 +110,7 @@ public class Vista extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(cbxIncompleto);
-        cbxIncompleto.setText("Incompleta");
+        cbxIncompleto.setText("Pendiente");
         cbxIncompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxIncompletoActionPerformed(evt);
@@ -239,7 +236,6 @@ public class Vista extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
         controlador.procesoGestorTareas();
-        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtErrorActionPerformed
@@ -249,6 +245,7 @@ public class Vista extends javax.swing.JFrame {
     private void menuCompletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCompletasActionPerformed
         Completas objCompletas = new Completas();
         objCompletas.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_menuCompletasActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -261,30 +258,27 @@ public class Vista extends javax.swing.JFrame {
 
     private void menuPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPendientesActionPerformed
         Pendientes objPendientes = new Pendientes();
-        objPendientes.setVisible(true);// TODO add your handling code here:
+        objPendientes.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_menuPendientesActionPerformed
-    
+
     public String getTxtDescripcion() {
         return txtDescripcion.getText();
     }
-    
+
     public String getTxtTitulo() {
         return txtTitulo.getText();
     }
-    
-    
+
     public void Error(String error) {
         txtError.setText(error);
     }
-    
-    
-    ;
- 
+
     public String getEstadoSeleccionado() {
         if (cbxCompleto.isSelected()) {
             return "Completa";
         } else if (cbxIncompleto.isSelected()) {
-            return "Incompleta";
+            return "Pendiente";
         } else {
             return "";
         }

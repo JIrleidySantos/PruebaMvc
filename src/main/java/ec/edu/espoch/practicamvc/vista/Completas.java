@@ -33,6 +33,7 @@ public class Completas extends javax.swing.JFrame {
         lblDatos = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        menuInicio = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -42,6 +43,15 @@ public class Completas extends javax.swing.JFrame {
         txtCompletas.setRows(5);
         txtCompletas.setCaretColor(new java.awt.Color(0, 102, 0));
         txtCompletas.setDisabledTextColor(new java.awt.Color(0, 153, 153));
+        txtCompletas.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                txtCompletasAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(txtCompletas);
 
         lblDatos.setForeground(new java.awt.Color(0, 153, 153));
@@ -49,12 +59,21 @@ public class Completas extends javax.swing.JFrame {
         lblDatos.setBorder(new javax.swing.border.MatteBorder(null));
         lblDatos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jMenu1.setText("Inicio");
+        jMenu1.setText("Menu");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
             }
         });
+
+        menuInicio.setText("Inicio");
+        menuInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInicioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuInicio);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -86,8 +105,18 @@ public class Completas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-// TODO add your handling code here:
+
     }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void txtCompletasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtCompletasAncestorAdded
+         // TODO add your handling code here:
+    }//GEN-LAST:event_txtCompletasAncestorAdded
+
+    private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed
+        Vista vis = new Vista();
+        vis.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_menuInicioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -95,6 +124,7 @@ public class Completas extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDatos;
+    private javax.swing.JMenuItem menuInicio;
     private javax.swing.JTextArea txtCompletas;
     // End of variables declaration//GEN-END:variables
 }
