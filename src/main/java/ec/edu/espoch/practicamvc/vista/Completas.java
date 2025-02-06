@@ -16,6 +16,17 @@ public class Completas extends javax.swing.JFrame {
     /**
      * Creates new form Mostrar
      */
+    public void mostrarTareasCompletas(String[] datos) {
+    String cadena = "";
+        for{
+            cadena = cadena + datos[i];
+        }
+    }
+
+    public void error(String error) {
+        txtCompletas.setText(error);
+    }
+    
     public Completas() {
         initComponents();
 

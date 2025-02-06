@@ -10,6 +10,15 @@ package ec.edu.espoch.practicamvc.vista;
  */
 public class Pendientes extends javax.swing.JFrame {
 
+    
+    public void mostrarTareasPendientes(String[] datos){
+    
+    
+    }
+    
+    public void error(String error) {
+        txtIncompletas.setText(error);
+    }
     /**
      * Creates new form Incompletas
      */
