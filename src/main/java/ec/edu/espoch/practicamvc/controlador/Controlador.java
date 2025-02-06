@@ -6,18 +6,30 @@ package ec.edu.espoch.practicamvc.controlador;
 
 import ec.edu.espoch.practicamvc.modelo.GestordeTareas;
 import ec.edu.espoch.practicamvc.modelo.Tarea;
+import ec.edu.espoch.practicamvc.vista.Completas;
+import ec.edu.espoch.practicamvc.vista.Pendientes;
 import ec.edu.espoch.practicamvc.vista.Vista;
 
 
 public class Controlador {
 
     private Vista vista;
-    private GestordeTareas modelo;
+    private GestordeTareas gestor;
+    private Completas completa;
+    private Pendientes incompleta;
+    
 
-    public Controlador(Vista vista) {
+    public Controlador(Vista vista, Completas completa, Pendientes incompleta) {
         this.vista = vista;
-        this.modelo = new GestordeTareas();
+        this.gestor = new GestordeTareas();
+        this.completa = completa;
+        this.incompleta = incompleta;
     }
+    
+    public void ejecutarCompleta() {
+        gestor.listarTareasCompletadas();
+
+    }     
 
     public void procesoGestorTareas() {
         String titulo, descripcion, estado;
@@ -31,13 +43,18 @@ public class Controlador {
                 throw new Exception("Por favor complete todos los campos y seleccione un estado.");
             }
 
-            modelo.agregarTareas(new Tarea(0, titulo, descripcion, true));
+            gestor.agregarTareas(new Tarea(0, titulo, descripcion, true));
 
             vista.Error("Tarea registrada con éxito.");
 
+
         } catch (Exception e) {
             vista.Error("Error: " + e.getMessage());
-        }
-    }
+            
+        
+        } 
+
+   
+}
 }
 

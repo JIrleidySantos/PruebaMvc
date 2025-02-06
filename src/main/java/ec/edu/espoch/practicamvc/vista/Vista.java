@@ -5,6 +5,7 @@
 package ec.edu.espoch.practicamvc.vista;
 
 import ec.edu.espoch.practicamvc.controlador.Controlador;
+import ec.edu.espoch.practicamvc.modelo.GestordeTareas;
 
 /**
  *
@@ -16,11 +17,13 @@ public class Vista extends javax.swing.JFrame {
      * Creates new form Vista
      */
     private Controlador controlador;
+    Completas objCompleta= new Completas();
+    Pendientes objIncompleta= new Pendientes();
 
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
-        controlador = new Controlador(this);
+        controlador = new Controlador(this,objCompleta, objIncompleta);
     }
 
     /**
@@ -231,6 +234,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void cbxCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCompletoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxCompletoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -246,6 +250,9 @@ public class Vista extends javax.swing.JFrame {
         Completas objCompletas = new Completas();
         objCompletas.setVisible(true);
         this.setVisible(false);
+ 
+        controlador.ejecutarCompleta();
+        
     }//GEN-LAST:event_menuCompletasActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -254,12 +261,13 @@ public class Vista extends javax.swing.JFrame {
 
     private void cbxIncompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxIncompletoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxIncompletoActionPerformed
 
     private void menuPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPendientesActionPerformed
         Pendientes objPendientes = new Pendientes();
         objPendientes.setVisible(true);
-        this.setVisible(false);// TODO add your handling code here:
+        this.setVisible(false);// TO DO add your handling code here:
     }//GEN-LAST:event_menuPendientesActionPerformed
 
     public String getTxtDescripcion() {

@@ -4,12 +4,15 @@
  */
 package ec.edu.espoch.practicamvc.vista;
 
+import ec.edu.espoch.practicamvc.controlador.Controlador;
+
 /**
  *
  * @author USUARIO
  */
 public class Completas extends javax.swing.JFrame {
-
+    private Controlador controlador;
+    
     /**
      * Creates new form Mostrar
      */
@@ -110,6 +113,7 @@ public class Completas extends javax.swing.JFrame {
 
     private void txtCompletasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtCompletasAncestorAdded
          // TODO add your handling code here:
+         controlador.ejecutarCompleta();
     }//GEN-LAST:event_txtCompletasAncestorAdded
 
     private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed
