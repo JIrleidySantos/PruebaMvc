@@ -6,6 +6,7 @@ package ec.edu.espoch.practicamvc;
 
 import ec.edu.espoch.practicamvc.vista.Vista;
 
+
 /**
  *
  * @author mundo
@@ -13,8 +14,7 @@ import ec.edu.espoch.practicamvc.vista.Vista;
 public class PracticaMvc {
 
     public static void main(String[] args) {
-       Vista objVista = new Vista ();
-       objVista.setVisible(true);
-
+        Vista objVista= new Vista();
+        objVista.setVisible(true);
     }
 }

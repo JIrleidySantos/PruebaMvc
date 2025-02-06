@@ -6,7 +6,6 @@ package ec.edu.espoch.practicamvc.vista;
 
 import ec.edu.espoch.practicamvc.controlador.Controlador;
 
-
 /**
  *
  * @author mundo
@@ -17,7 +16,7 @@ public class Vista extends javax.swing.JFrame {
      * Creates new form Vista
      */
     private Controlador controlador;
-    
+
     public Vista() {
         initComponents();
         controlador = new Controlador(this);
@@ -33,31 +32,49 @@ public class Vista extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
+        menuBar2 = new java.awt.MenuBar();
+        menu3 = new java.awt.Menu();
+        menu4 = new java.awt.Menu();
+        popupMenu1 = new java.awt.PopupMenu();
         lblTtulo = new javax.swing.JLabel();
-        cbxMenu = new javax.swing.JComboBox<>();
         lblIngreseTitulo = new javax.swing.JLabel();
         lblIngreseDescripcion = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         txtDescripcion = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         cbxCompleto = new javax.swing.JCheckBox();
         cbxIncompleto = new javax.swing.JCheckBox();
-        btnMostrar = new javax.swing.JButton();
         txtError = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        menuCompletas = new javax.swing.JMenuItem();
+        menuPendientes = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
+
+        menu3.setLabel("File");
+        menuBar2.add(menu3);
+
+        menu4.setLabel("Edit");
+        menuBar2.add(menu4);
+
+        popupMenu1.setLabel("popupMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTtulo.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
+        lblTtulo.setFont(new java.awt.Font("Eras Bold ITC", 0, 24)); // NOI18N
+        lblTtulo.setForeground(new java.awt.Color(0, 0, 204));
         lblTtulo.setText("Gestion de Tarea");
-
-        cbxMenu.setFont(new java.awt.Font("Constantia", 0, 14)); // NOI18N
-        cbxMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agregar nueva tarea", "Listar tareas pendientes", "Listar tareas completadas", "Salir" }));
-        cbxMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxMenuActionPerformed(evt);
-            }
-        });
 
         lblIngreseTitulo.setText("Ingrese el titulo de la tarea");
 
@@ -75,14 +92,13 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        btnRegistrar.setForeground(new java.awt.Color(255, 153, 153));
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-
-        jButton1.setText("Limpiar");
 
         buttonGroup1.add(cbxCompleto);
         cbxCompleto.setText("Completa");
@@ -94,11 +110,9 @@ public class Vista extends javax.swing.JFrame {
 
         buttonGroup1.add(cbxIncompleto);
         cbxIncompleto.setText("Incompleta");
-
-        btnMostrar.setText("Mostrar");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        cbxIncompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                cbxIncompletoActionPerformed(evt);
             }
         });
 
@@ -108,79 +122,103 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("Tareas");
+
+        menuCompletas.setText("Tareas Completas");
+        menuCompletas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCompletasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuCompletas);
+
+        menuPendientes.setText("Tareas Pendientes");
+        menuPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPendientesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuPendientes);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Usuarios");
+
+        jMenuItem2.setText("Agregar Usuario");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Salir");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegistrar)
-                        .addGap(95, 95, 95)
-                        .addComponent(btnMostrar)
-                        .addGap(72, 72, 72)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(214, 214, 214)
                         .addComponent(cbxCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
-                        .addComponent(cbxIncompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(109, 109, 109)
+                        .addComponent(cbxIncompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(txtError, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(btnRegistrar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(lblTtulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 98, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblTtulo)
-                        .addGap(296, 296, 296))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtError, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(293, 293, 293))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbxMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblIngreseDescripcion)
-                        .addComponent(lblIngreseTitulo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
-                    .addComponent(txtTitulo))
-                .addGap(32, 32, 32))
+                    .addComponent(lblIngreseTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIngreseDescripcion)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(67, 67, 67))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblTtulo)
-                .addGap(53, 53, 53)
-                .addComponent(cbxMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(33, 33, 33)
+                .addComponent(lblTtulo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIngreseTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIngreseTitulo)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIngreseDescripcion))
-                .addGap(30, 30, 30)
+                    .addComponent(lblIngreseDescripcion)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxCompleto)
                     .addComponent(cbxIncompleto))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrar)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMostrar))
                 .addGap(18, 18, 18)
+                .addComponent(btnRegistrar)
+                .addGap(31, 31, 31)
                 .addComponent(txtError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
 
     private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
         // TODO add your handling code here:
@@ -189,12 +227,6 @@ public class Vista extends javax.swing.JFrame {
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
-
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        // TODO add your handling code here:
-    
-
-    }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void cbxCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCompletoActionPerformed
         // TODO add your handling code here:
@@ -209,18 +241,32 @@ public class Vista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtErrorActionPerformed
 
-    private void cbxMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMenuActionPerformed
+    private void menuCompletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCompletasActionPerformed
+        Completas objCompletas = new Completas();
+        objCompletas.setVisible(true);
+    }//GEN-LAST:event_menuCompletasActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxMenuActionPerformed
-    
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void cbxIncompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxIncompletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxIncompletoActionPerformed
+
+    private void menuPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPendientesActionPerformed
+        Pendientes objPendientes = new Pendientes();
+        objPendientes.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_menuPendientesActionPerformed
+
     public String getTxtDescripcion() {
         return txtDescripcion.getText();
     }
-    
+
     public String getTxtTitulo() {
         return txtTitulo.getText();
     }
-    
+
     public void Error(String error) {
         txtError.setText(error);
     }
@@ -228,16 +274,27 @@ public class Vista extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox cbxCompleto;
     private javax.swing.JCheckBox cbxIncompleto;
-    private javax.swing.JComboBox<String> cbxMenu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lblIngreseDescripcion;
     private javax.swing.JLabel lblIngreseTitulo;
     private javax.swing.JLabel lblTtulo;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.Menu menu3;
+    private java.awt.Menu menu4;
+    private java.awt.MenuBar menuBar1;
+    private java.awt.MenuBar menuBar2;
+    private javax.swing.JMenuItem menuCompletas;
+    private javax.swing.JMenuItem menuPendientes;
+    private java.awt.PopupMenu popupMenu1;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtError;
     private javax.swing.JTextField txtTitulo;
