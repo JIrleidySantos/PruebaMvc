@@ -16,7 +16,6 @@ public class Controlador {
     private GestordeTareas gestor;
     private Completas completa;
     private Pendientes pendientes;
-    private Completas completas;
 
     public Controlador(Vista vista, Completas completa, Pendientes incompleta) {
         this.vista = vista;
@@ -42,15 +41,20 @@ public class Controlador {
                 throw new Exception("Por favor complete todos los campos y seleccione un estado.");
             }
 
-            gestor.agregarTareas(new Tarea(0, titulo, descripcion, true));
+            gestor.agregarTareas(new Tarea(0, titulo, descripcion, true, true));
 
-            vista.Error("Tarea registrada con éxito.");
+            vista.error("Tarea registrada con éxito.");
 
         } catch (Exception e) {
-            vista.Error("Error: " + e.getMessage());
+            vista.error("Error: " + e.getMessage());
 
         }
 
+    }
+
+    public String[] listarTodasTareas() {
+        vista.totalTareas(toString());
+        return null;
     }
 
     public void tareasPendiente() {
@@ -68,7 +72,7 @@ public class Controlador {
         try {
             String[] tareasCompletas = new String[10];
             tareasCompletas = gestor.listarTareasPendientes();
-            completas.mostrarTareasCompletas(tareasCompletas);
+            completa.mostrarTareasCompletas(tareasCompletas);
         } catch (Exception e) {
             pendientes.error("Error: " + e.getMessage());
 

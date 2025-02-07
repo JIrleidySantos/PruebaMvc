@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espoch.practicamvc.vista;
 
 import ec.edu.espoch.practicamvc.controlador.Controlador;
@@ -11,22 +7,22 @@ import ec.edu.espoch.practicamvc.controlador.Controlador;
  * @author USUARIO
  */
 public class Completas extends javax.swing.JFrame {
+
     private Controlador controlador;
-    
-    /**
-     * Creates new form Mostrar
-     */
+
     public void mostrarTareasCompletas(String[] datos) {
-    String cadena = "";
-        for{
+        String cadena = "";
+        for (int i = 0; i < datos.length; i++) {
             cadena = cadena + datos[i];
+            i++;
         }
+
     }
 
     public void error(String error) {
         txtCompletas.setText(error);
     }
-    
+
     public Completas() {
         initComponents();
 
@@ -123,8 +119,8 @@ public class Completas extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void txtCompletasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtCompletasAncestorAdded
-         // TODO add your handling code here:
-         controlador.ejecutarCompleta();
+        // TODO add your handling code here:
+        controlador.ejecutarCompleta();
     }//GEN-LAST:event_txtCompletasAncestorAdded
 
     private void menuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInicioActionPerformed

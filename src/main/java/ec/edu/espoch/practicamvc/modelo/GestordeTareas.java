@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espoch.practicamvc.modelo;
-
-import java.util.Vector;
 
 /**
  *
  * @author mundo
  */
 public class GestordeTareas {
-    
+
     private String[] tareas;
     private int contadorId;
     private int cantidadTareas;
 
     public GestordeTareas() {
-        tareas = new String[20]; 
+        tareas = new String[20];
         contadorId = 1;
         cantidadTareas = 0;
     }
@@ -30,14 +24,14 @@ public class GestordeTareas {
         } else {
             System.out.println("No se pueden agregar más tareas. Límite alcanzado.");
         }
-        
+
     }
 
     public String[] listarTareasPendientes() {
         String[] pendientes = new String[cantidadTareas];
         int contador = 0;
         for (int i = 0; i < cantidadTareas; i++) {
-            if (!tareas[i].contains("Completa")) { 
+            if (!tareas[i].contains("Completa")) {
                 pendientes[contador++] = tareas[i];
             }
         }
@@ -48,22 +42,30 @@ public class GestordeTareas {
         String[] completadas = new String[cantidadTareas];
         int contador = 0;
         for (int i = 0; i < cantidadTareas; i++) {
-            if (tareas[i].contains("Completa")) { 
+            if (tareas[i].contains("Completa")) {
                 completadas[contador++] = tareas[i];
             }
         }
         return completadas;
     }
 
+    public String[] listarTodasTareas() {
+        String[] todasTareas = new String[cantidadTareas];
+        int contador = 0;
+        for (int i = 0; i < cantidadTareas; i++) {
+            todasTareas[contador++] = tareas[i];
+        }
+        return todasTareas;
+    }
+
     public boolean marcarComoCompletas(int id) {
         for (int i = 0; i < cantidadTareas; i++) {
-            if (tareas[i].contains("ID: " + id)) { 
-                tareas[i] = tareas[i].replace("Pendiente", "Completa"); 
+            if (tareas[i].contains("ID: " + id)) {
+                tareas[i] = tareas[i].replace("Pendiente", "Completa");
                 return true;
             }
         }
         return false;
     }
-    
-}
 
+}

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espoch.practicamvc.modelo;
 
 /**
@@ -9,17 +5,27 @@ package ec.edu.espoch.practicamvc.modelo;
  * @author mundo
  */
 public class Tarea {
-   
+
     private int id;
     private String titulo;
     private String descripcion;
     private boolean tareaCompletada;
+    private boolean tareIncompleta;
 
-    public Tarea(int id, String titulo, String descripcion, boolean tareaCompletada) {
+    public Tarea(int id, String titulo, String descripcion, boolean tareaCompletada, boolean tareIncompleta) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.tareaCompletada = tareaCompletada;
+        this.tareIncompleta = tareIncompleta;
+    }
+
+    public boolean isTareIncompleta() {
+        return tareIncompleta;
+    }
+
+    public void setTareIncompleta(boolean tareIncompleta) {
+        this.tareIncompleta = tareIncompleta;
     }
 
     public int getId() {
@@ -54,11 +60,4 @@ public class Tarea {
         this.tareaCompletada = tareaCompletada;
     }
 
-    @Override
-    public String toString() {
-        return "Tarea{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", tareaCompletada=" + tareaCompletada + '}';
-    }
-   
-    
-    
 }
