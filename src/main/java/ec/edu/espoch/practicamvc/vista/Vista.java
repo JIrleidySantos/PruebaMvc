@@ -292,13 +292,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
-                String datos = " ";
-        
-        for (int i = 0; i < 6; i++) {
-            System.out.println("Los datos del participante es: "+getEstadoSeleccionado());
-            datos=datos+", "+getEstadoSeleccionado();
-        } 
-            txtTotalTareas.setText(datos);
+        controlador.ejecutarCompleta();
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     public String getTxtDescripcion() {
