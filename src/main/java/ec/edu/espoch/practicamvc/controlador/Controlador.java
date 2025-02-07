@@ -53,7 +53,7 @@ public class Controlador {
     }
 
     public String[] listarTodasTareas() {
-        vista.totalTareas(toString());
+        vista.totalTareas(listarTodasTareas().toString());
         return null;
     }
 

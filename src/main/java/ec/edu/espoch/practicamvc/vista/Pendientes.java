@@ -4,11 +4,15 @@
  */
 package ec.edu.espoch.practicamvc.vista;
 
+import ec.edu.espoch.practicamvc.controlador.Controlador;
+
 /**
  *
  * @author mundo
  */
 public class Pendientes extends javax.swing.JFrame {
+
+    private Controlador controlador;
 
     public void mostrarTareasPendientes(String[] datos) {
         String cadena = "";
@@ -27,6 +31,7 @@ public class Pendientes extends javax.swing.JFrame {
      */
     public Pendientes() {
         initComponents();
+    this.setLocationRelativeTo(null);
     }
 
     /**
@@ -100,7 +105,7 @@ public class Pendientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
-        // TODO add your handling code here:
+       controlador.tareasPendiente();// TODO add your handling code here:
     }//GEN-LAST:event_menuActionPerformed
 
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
