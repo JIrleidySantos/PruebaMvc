@@ -41,7 +41,7 @@ public class GestordeTareas {
     public String[] listarTareasCompletadas() {
         String[] completadas = new String[cantidadTareas];
         int contador = 0;
-        for (int i = 0; i < cantidadTareas; i++) {
+        for (int i = 0; i < 10; i++) {
             if (tareas[i].contains("Completa")) {
                 completadas[contador++] = tareas[i];
             }

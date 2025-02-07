@@ -19,7 +19,7 @@ public class Vista extends javax.swing.JFrame {
     private Controlador controlador;
     Completas objCompleta = new Completas();
     Pendientes objIncompleta = new Pendientes();
-
+    
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -259,7 +259,7 @@ public class Vista extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
         controlador.procesoGestorTareas();
-        
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtErrorActionPerformed
@@ -270,7 +270,7 @@ public class Vista extends javax.swing.JFrame {
         Completas objCompletas = new Completas();
         objCompletas.setVisible(true);
         this.setVisible(false);
-
+        
         controlador.ejecutarCompleta();
 
     }//GEN-LAST:event_menuCompletasActionPerformed
@@ -292,39 +292,27 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
-                String datos = " ";
-        
-        for (int i = 0; i < 6; i++) {
-            System.out.println("Los datos del participante es: "+getEstadoSeleccionado());
-            datos=datos+", "+getEstadoSeleccionado();
-        } 
-            txtTotalTareas.setText(datos);
+        controlador.listarTodasTareas();
     }//GEN-LAST:event_btnMostrarActionPerformed
-
+    
     public String getTxtDescripcion() {
         return txtDescripcion.getText();
     }
-
+    
     public String getTxtTitulo() {
         return txtTitulo.getText();
     }
-
+    
     public void error(String error) {
         txtError.setText(error);
     }
-
+    
     public String getEstadoSeleccionado() {
-        if (cbxCompleto.isSelected()) {
-            return "Completa";
-        } else if (cbxIncompleto.isSelected()) {
-            return "Pendiente";
-        } else {
-            return "";
-        }
+        return cbxCompleto.isSelected() ? "Completa" : cbxIncompleto.isSelected() ? "Pendiente" : "";
     }
-
+    
     public void totalTareas(String totalTareas) {
-        
+        txtTotalTareas.setText(totalTareas);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMostrar;
