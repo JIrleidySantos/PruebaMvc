@@ -12,7 +12,7 @@ public class Pendientes extends javax.swing.JFrame {
 
     public void mostrarTareasPendientes(String[] datos) {
         String cadena = "";
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < datos.length; i++) {
             cadena = cadena + datos[i];
             i++;
         }

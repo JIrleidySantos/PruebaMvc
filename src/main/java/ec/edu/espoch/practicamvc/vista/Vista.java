@@ -54,6 +54,7 @@ public class Vista extends javax.swing.JFrame {
         txtError = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTotalTareas = new javax.swing.JTextArea();
+        btnMostrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuCompletas = new javax.swing.JMenuItem();
@@ -132,6 +133,13 @@ public class Vista extends javax.swing.JFrame {
         txtTotalTareas.setRows(5);
         jScrollPane1.setViewportView(txtTotalTareas);
 
+        btnMostrar.setText("MOSTRAR");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Tareas");
 
         menuCompletas.setText("Tareas Completas");
@@ -176,9 +184,6 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(317, 317, 317)
-                        .addComponent(btnRegistrar))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(247, 247, 247)
                         .addComponent(lblTtulo))
                     .addGroup(layout.createSequentialGroup()
@@ -198,7 +203,12 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(cbxIncompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(159, 159, 159)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(btnRegistrar)
+                        .addGap(97, 97, 97)
+                        .addComponent(btnMostrar)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -218,9 +228,11 @@ public class Vista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxCompleto)
                     .addComponent(cbxIncompleto))
-                .addGap(18, 18, 18)
-                .addComponent(btnRegistrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar)
+                    .addComponent(btnMostrar))
+                .addGap(18, 18, 18)
                 .addComponent(txtError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,6 +290,17 @@ public class Vista extends javax.swing.JFrame {
         this.setVisible(false);// TO DO add your handling code here:
     }//GEN-LAST:event_menuPendientesActionPerformed
 
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+                String datos = " ";
+        
+        for (int i = 0; i < 6; i++) {
+            System.out.println("Los datos del participante es: "+getEstadoSeleccionado());
+            datos=datos+", "+getEstadoSeleccionado();
+        } 
+            txtTotalTareas.setText(datos);
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
     public String getTxtDescripcion() {
         return txtDescripcion.getText();
     }
@@ -301,9 +324,10 @@ public class Vista extends javax.swing.JFrame {
     }
 
     public void totalTareas(String totalTareas) {
-        txtTotalTareas.setText(totalTareas);
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox cbxCompleto;
