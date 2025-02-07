@@ -43,7 +43,7 @@ public class Controlador {
 
             gestor.agregarTareas(new Tarea(0, titulo, descripcion, true, true));
 
-            vista.error("Tarea registrada con éxito.");
+            vista.error("Tarea registrada con éxito. ");
 
         } catch (Exception e) {
             vista.error("Error: " + e.getMessage());
