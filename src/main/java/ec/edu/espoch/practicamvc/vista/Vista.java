@@ -6,6 +6,7 @@ package ec.edu.espoch.practicamvc.vista;
 
 import ec.edu.espoch.practicamvc.controlador.Controlador;
 import ec.edu.espoch.practicamvc.modelo.GestordeTareas;
+import ec.edu.espoch.practicamvc.modelo.Tarea;
 
 /**
  *
@@ -259,7 +260,6 @@ public class Vista extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
         controlador.procesoGestorTareas();
-
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtErrorActionPerformed
@@ -270,9 +270,7 @@ public class Vista extends javax.swing.JFrame {
         Completas objCompletas = new Completas();
         objCompletas.setVisible(true);
         this.setVisible(false);
-        
-        controlador.ejecutarCompleta();
-
+      
     }//GEN-LAST:event_menuCompletasActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -292,11 +290,8 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
-        controlador.ejecutarCompleta();
-=======
-        controlador.listarTodasTareas();
->>>>>>> f0e2794a52d8c67b1bff86168280f1b47090bcbd
+        controlador.Todas();
+        
     }//GEN-LAST:event_btnMostrarActionPerformed
     
     public String getTxtDescripcion() {
@@ -316,8 +311,13 @@ public class Vista extends javax.swing.JFrame {
     }
     
     public void totalTareas(String totalTareas) {
-        txtTotalTareas.setText(totalTareas);
+        txtTotalTareas.setText(String.valueOf(" El Titulo es: \n"+getTxtTitulo()+"\n"+"La descripcion es: "+"\n" + getTxtDescripcion()+"\n"+getEstadoSeleccionado()+" "));
     }
+    
+    
+       
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegistrar;

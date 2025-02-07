@@ -16,16 +16,17 @@ public class Controlador {
     private GestordeTareas gestor;
     private Completas completa;
     private Pendientes pendientes;
+    String todasTareas;
 
     public Controlador(Vista vista, Completas completa, Pendientes incompleta) {
         this.vista = vista;
         this.gestor = new GestordeTareas();
         this.completa = completa;
         this.pendientes = incompleta;
+        
     }
 
-    public void ejecutarCompleta() {
-        gestor.listarTareasCompletadas();
+    public void TareasCompletaImcompleta() {
 
     }
 
@@ -36,26 +37,21 @@ public class Controlador {
             titulo = vista.getTxtTitulo();
             descripcion = vista.getTxtDescripcion();
             estado = vista.getEstadoSeleccionado();
+            
+            
 
             if (titulo.isEmpty() || descripcion.isEmpty() || estado.isEmpty()) {
                 throw new Exception("Por favor complete todos los campos y seleccione un estado.");
             }
 
             gestor.agregarTareas(new Tarea(0, titulo, descripcion, true, true));
-
             vista.error("Tarea registrada con éxito. ");
-
+           
         } catch (Exception e) {
-            vista.error("Error: " + e.getMessage());
-
+            vista.error("Error: " + e.getMessage());   
         }
-
     }
-
-    public String[] listarTodasTareas() {
-        vista.totalTareas(listarTodasTareas().toString());
-        return null;
-    }
+   
 
     public void tareasPendiente() {
         try {
@@ -73,6 +69,17 @@ public class Controlador {
             String[] tareasCompletas = new String[10];
             tareasCompletas = gestor.listarTareasPendientes();
             completa.mostrarTareasCompletas(tareasCompletas);
+        } catch (Exception e) {
+            pendientes.error("Error: " + e.getMessage());
+
+        }
+    }
+    
+        public void Todas() {
+        try {
+            String[] TodasTareas = new String[10];
+            TodasTareas = gestor.listarTodasTareas();
+            vista.totalTareas(todasTareas);
         } catch (Exception e) {
             pendientes.error("Error: " + e.getMessage());
 

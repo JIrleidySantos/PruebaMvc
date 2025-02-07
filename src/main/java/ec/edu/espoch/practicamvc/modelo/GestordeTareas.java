@@ -24,7 +24,6 @@ public class GestordeTareas {
         } else {
             System.out.println("No se pueden agregar más tareas. Límite alcanzado.");
         }
-
     }
 
     public String[] listarTareasPendientes() {
@@ -67,5 +66,6 @@ public class GestordeTareas {
         }
         return false;
     }
+    
 
 }
