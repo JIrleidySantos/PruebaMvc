@@ -13,12 +13,14 @@ import ec.edu.espoch.practicamvc.controlador.Controlador;
 public class Pendientes extends javax.swing.JFrame {
 
     private Controlador controlador;
+    private Vista vista;
+    String cadena = "";
 
     public void mostrarTareasPendientes(String[] datos) {
-        String cadena = "";
+        
         for (int i = 0; i < datos.length; i++) {
             cadena = cadena + datos[i];
-            i++;
+            i++;    
         }
     }
 
@@ -43,12 +45,16 @@ public class Pendientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtIncompletas = new javax.swing.JTextArea();
+        btnTareasPen = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
         Inicio = new javax.swing.JMenuItem();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +63,13 @@ public class Pendientes extends javax.swing.JFrame {
         txtIncompletas.setColumns(20);
         txtIncompletas.setRows(5);
         jScrollPane1.setViewportView(txtIncompletas);
+
+        btnTareasPen.setText("MOSTRAR TAREAS PENDIENTES");
+        btnTareasPen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTareasPenActionPerformed(evt);
+            }
+        });
 
         menu.setText("menu");
         menu.addActionListener(new java.awt.event.ActionListener() {
@@ -82,30 +95,36 @@ public class Pendientes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(btnTareasPen)))
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTareasPen)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
-       controlador.tareasPendiente();// TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_menuActionPerformed
 
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
@@ -114,12 +133,23 @@ public class Pendientes extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_InicioActionPerformed
 
+    private void btnTareasPenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTareasPenActionPerformed
+        // TODO add your handling code here:
+        controlador.tareasPendiente();
+    }//GEN-LAST:event_btnTareasPenActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public void totalTareasPendientes(String totalTareasPen) {
+        txtIncompletas.setText(String.valueOf(" El Titulo es: \n" + vista.getTxtTitulo()
+                + "\n" + "La descripcion es: " + "\n" + vista.getTxtDescripcion() + "\n" + vista.getEstadoSeleccionado() + " "));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Inicio;
+    private javax.swing.JButton btnTareasPen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;

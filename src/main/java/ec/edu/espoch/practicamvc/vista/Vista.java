@@ -20,7 +20,7 @@ public class Vista extends javax.swing.JFrame {
     private Controlador controlador;
     Completas objCompleta = new Completas();
     Pendientes objIncompleta = new Pendientes();
-    
+
     public Vista() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -270,7 +270,7 @@ public class Vista extends javax.swing.JFrame {
         Completas objCompletas = new Completas();
         objCompletas.setVisible(true);
         this.setVisible(false);
-      
+
     }//GEN-LAST:event_menuCompletasActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -291,31 +291,29 @@ public class Vista extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
         controlador.Todas();
-        
+
     }//GEN-LAST:event_btnMostrarActionPerformed
-    
+
     public String getTxtDescripcion() {
         return txtDescripcion.getText();
     }
-    
+
     public String getTxtTitulo() {
         return txtTitulo.getText();
     }
-    
+
     public void error(String error) {
         txtError.setText(error);
     }
-    
+
     public String getEstadoSeleccionado() {
         return cbxCompleto.isSelected() ? "Completa" : cbxIncompleto.isSelected() ? "Pendiente" : "";
     }
-    
+
     public void totalTareas(String totalTareas) {
-        txtTotalTareas.setText(String.valueOf(" El Titulo es: \n"+getTxtTitulo()+"\n"+"La descripcion es: "+"\n" + getTxtDescripcion()+"\n"+getEstadoSeleccionado()+" "));
+        txtTotalTareas.setText(String.valueOf(" El Titulo es: \n" + getTxtTitulo()
+                + "\n" + "La descripcion es: " + "\n" + getTxtDescripcion() + "\n" + getEstadoSeleccionado() + " "));
     }
-    
-    
-       
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

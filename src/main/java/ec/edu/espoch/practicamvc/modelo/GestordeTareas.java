@@ -16,10 +16,10 @@ public class GestordeTareas {
         cantidadTareas = 0;
     }
 
-    public void agregarTareas(Tarea tarea) {
+    public void agregarTareas(Tarea tareitas) {
         if (cantidadTareas < tareas.length) {
-            tarea.setId(contadorId++);
-            tareas[cantidadTareas] = tarea.toString();
+            tareitas.setId(contadorId++);
+            tareas[cantidadTareas] = tareitas.toString();
             cantidadTareas++;
         } else {
             System.out.println("No se pueden agregar más tareas. Límite alcanzado.");
@@ -30,7 +30,7 @@ public class GestordeTareas {
         String[] pendientes = new String[cantidadTareas];
         int contador = 0;
         for (int i = 0; i < cantidadTareas; i++) {
-            if (!tareas[i].contains("Completa")) {
+            if (!tareas[i].contains("Incompleta")) {
                 pendientes[contador++] = tareas[i];
             }
         }
@@ -40,7 +40,7 @@ public class GestordeTareas {
     public String[] listarTareasCompletadas() {
         String[] completadas = new String[cantidadTareas];
         int contador = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < cantidadTareas; i++) {
             if (tareas[i].contains("Completa ")) {
                 completadas[contador++] = tareas[i];
             }
@@ -66,6 +66,5 @@ public class GestordeTareas {
         }
         return false;
     }
-    
 
 }
