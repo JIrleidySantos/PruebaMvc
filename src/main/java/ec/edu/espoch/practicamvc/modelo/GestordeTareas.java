@@ -30,7 +30,7 @@ public class GestordeTareas {
         String[] pendientes = new String[cantidadTareas];
         int contador = 0;
         for (int i = 0; i < cantidadTareas; i++) {
-            if (!tareas[i].contains("Incompleta")) {
+            if (!tareas[i].contains("Pendiente")) {
                 pendientes[contador++] = tareas[i];
             }
         }

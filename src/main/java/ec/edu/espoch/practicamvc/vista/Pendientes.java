@@ -14,14 +14,16 @@ public class Pendientes extends javax.swing.JFrame {
 
     private Controlador controlador;
     private Vista vista;
-    String cadena = "";
 
     public void mostrarTareasPendientes(String[] datos) {
-        
+        String cadena = " ";
         for (int i = 0; i < datos.length; i++) {
             cadena = cadena + datos[i];
-            i++;    
+            i++;
+            txtIncompletas.setText(String.valueOf(" El Titulo es: \n" + vista.getTxtTitulo()
+                    + "\n" + "La descripcion es: " + "\n" + vista.getTxtDescripcion() + "\n" + vista.getEstadoSeleccionado() + " "));
         }
+        txtIncompletas.setText(cadena.toString());
     }
 
     public void error(String error) {
@@ -33,7 +35,7 @@ public class Pendientes extends javax.swing.JFrame {
      */
     public Pendientes() {
         initComponents();
-    this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -124,7 +126,7 @@ public class Pendientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_menuActionPerformed
 
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
@@ -141,10 +143,6 @@ public class Pendientes extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void totalTareasPendientes(String totalTareasPen) {
-        txtIncompletas.setText(String.valueOf(" El Titulo es: \n" + vista.getTxtTitulo()
-                + "\n" + "La descripcion es: " + "\n" + vista.getTxtDescripcion() + "\n" + vista.getEstadoSeleccionado() + " "));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Inicio;

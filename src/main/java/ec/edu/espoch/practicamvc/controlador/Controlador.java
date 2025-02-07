@@ -17,8 +17,9 @@ public class Controlador {
     private Completas completa;
     private Pendientes pendientes;
     
-    String todasTareas;
-    String tareitas;
+    private String todasTareas;
+    private String tareitas;
+    private String totalTareasPendie;
 
     public Controlador(Vista vista, Completas completa, Pendientes incompleta) {
         this.vista = vista;
@@ -27,7 +28,6 @@ public class Controlador {
         this.pendientes = incompleta;
 
     }
-
 
     public void procesoGestorTareas() {
         String titulo, descripcion, estado;
@@ -54,7 +54,7 @@ public class Controlador {
             String[] tareasPend = new String[10];
             tareasPend = gestor.listarTareasPendientes();
             pendientes.mostrarTareasPendientes(tareasPend);
-            pendientes.totalTareasPendientes(todasTareas);
+            
         } catch (Exception e) {
             pendientes.error("Error: " + e.getMessage());
 
@@ -63,10 +63,10 @@ public class Controlador {
 
     public void tareasCompletas() {
         try {
-            String[] tareasCompletas = new String[10];
-            tareasCompletas = gestor.listarTareasPendientes();
+            String[] tareasCompl = new String[10];
+            tareasCompl = gestor.listarTareasPendientes();
             
-            completa.mostrarTareasCompletas(tareasCompletas);
+            completa.mostrarTareasCompletas(tareasCompl);
         } catch (Exception e) {
             pendientes.error("Error: " + e.getMessage());
 
